@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgb(117, 157, 144);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 
     'Helvetica Neue', sans-serif;
@@ -50,6 +51,8 @@ header {
   width: 100%;
   background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
   border-bottom: var(--borders);
+  display: flex;
+  /* margin-top: 0; */
 }
 
 nav {
@@ -96,11 +99,11 @@ nav li {
 .header-logo-container {
   margin: auto;
   padding: 10px 20px 0;
-  max-width: 500px;
+  /* max-width: 500px; */
 }
 
 .page-header {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   margin: 20px;
 }
@@ -180,6 +183,7 @@ nav li {
   .header-logo-container {
     margin: 10px 0;
     padding: 0 15px;
+    /* height: 10px; */
   }
 
   /* visual fix to help align logo */
@@ -199,6 +203,7 @@ nav li {
 
   .header-logo-container {
     width: 13px;
+    height: 20px;
   }
 
   .page-header h1 {
@@ -207,7 +212,6 @@ nav li {
   
   .page-header img {
     height: 20px;
-    margin-left:20px;
   }
   
   .page-header img:first-of-type {

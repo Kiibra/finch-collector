@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/finches/finch-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Finch List</h1>
+  <img src="{% static 'images/brwn.png' %}" alt="A cool finch" />
+  <img src="{% static 'images/kolors.png' %}" alt="A kolors finch" />
+  <img src="{% static 'images/redfinch.png' %}" alt="A red finch" />
+  <img src="{% static 'images/byellow.png' %}" alt="A finch on  a branch" />
+  <img src="{% static 'images/grnn.png' %}" alt="A finch on  a branch" />
+  <img src="{% static 'images/purpl.png' %}" alt="A finch on  a branch" />
+</section>
+
+<section class="card-container">
+  {% for finch in finches %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/purpl.png' %}" 
+            alt="A suspicous boy finch"
+          >
+        </div>
+        <h2 class="card-title">{{ finch.name }}</h2>
+        {% if finch.age > 0 %}
+          <p>A {{ finch.age }} year old {{ finch.breed }}</p>
+        {% else %}
+          <p>A {{ finch.breed }} finch.</p>
+        {% endif %}
+        <p><small>{{ finch.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}

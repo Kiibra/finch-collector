@@ -7,11 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link
+  width= '40px'
     rel="shortcut icon"
     type="image/png"
     href="{% static 'images/splash.png' %}"
   >
-  <title>Finch Collector🦜</title>
+  <title>Finch Collector</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% block head %}
   {% endblock %}
@@ -21,13 +22,16 @@
     <div class="header-logo-container">
       <a href="/">
         <img 
-          src="{% static 'images/purpl.png' %}"
-          alt="The Finch Collector Logo"
-        >
+        width = '50px'
+        height ="20px"
+        src="{% static 'images/grnn.png' %}"
+        alt="The Finch Collector Logo"
+        > 
       </a>
     </div>
     <nav>
       <ul>
+        <li><a href="/finches">All Finches</a></li>
         <li><a href="/about">About</a></li>
       </ul>
     </nav>
