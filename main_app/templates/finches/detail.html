@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet" 
+  type="text/css" 
+  href="{% static 'css/finches/finch-detail.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="finch-container">
+  <div class="finch-img">
+    <img 
+      src="{% static 'images/redbird.png' %}" 
+      alt="A red bird"
+    >
+  </div>
+  <div class="finch-details">
+    <h1>{{ finch.name }}</h1>
+    {% if finch.age > 0 %}
+      <h2>A {{ finch.age }} year old {{ finch.breed }}</h2>
+    {% else %}
+      <h2>A {{ finch.breed }} finch.</h2>
+    {% endif %}
+    <p>{{ finch.description }}</p>
+  </div>
+</section>
+
+{% endblock %}
