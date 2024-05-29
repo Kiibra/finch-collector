@@ -19,7 +19,7 @@
 <body>
   <header>
     <div class="header-logo-container">
-      <a href="/">
+      <a href="{% url 'home' %}">
         <img 
         height ="50px" 
         width="120px"
@@ -30,8 +30,8 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/finches">All Finches</a></li>
-        <li><a href="/about">About</a></li>
+        <li><a href="{% url 'finch-index' %}">All Finches</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
       </ul>
     </nav>
   </header>
