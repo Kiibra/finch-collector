@@ -21,7 +21,7 @@ finches = [
 
 # Define the home view
 def home(request):
-  return HttpResponse('<h1>Hello Finches🦜</h1>')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
