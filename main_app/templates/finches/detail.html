@@ -75,6 +75,11 @@
     autocomplete="off"
   >
     {% csrf_token %}
+    {% if finch.fed_for_today %}
+        <p class="fed">{{finch.name}} has been fed all their meals for today!</p>
+      {% else %}
+        <p class="unfed">{{finch.name}} might be hungry!</p>
+      {% endif %}
     {{ feeding_form.as_p }}
     <button type="submit" class="btn submit">Add Feeding</button>
   </form>
@@ -99,5 +104,5 @@
       <p>{{finch.name}} has never been fed 😔</p>
     </div>
   {% endif %}
-  
+
 {% endblock %}
