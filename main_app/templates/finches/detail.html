@@ -35,5 +35,37 @@
     {% comment %} New markup above {% endcomment %}
   </div>
 </section>
+<div class="feedings-toy-container">
+  <section class="feedings">
+    <div class="subsection-title">
+      <h2>Feedings</h2>
+      <img 
+        src="{% static 'images/seed.png' %}" 
+        alt="An ice cream cone "
+      />
+      <img 
+        src="{% static 'images/food.png' %}"
+        alt="A  finch food"
+      />
+      <img 
+        src="{% static 'images/finch.png' %}" 
+        alt="A kabob of kittens"
+      />
+    </div>
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Meal</th></tr>
+      </thead>
+      <tbody>
+        {% for feeding in finch.feeding_set.all %}
+          <tr>
+            <td>{{feeding.date}}</td>
+            <td>{{feeding.get_meal_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</div>
 
 {% endblock %}

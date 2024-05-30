@@ -25,7 +25,8 @@ class Finch(models.Model):
   
 # Add new Feeding model below Finch model
 class Feeding(models.Model):
-  date = models.DateField()
+  # the first optional positional argument overrides the label
+  date = models.DateField('Feeding date')
   meal = models.CharField(
     max_length=1,
     # add the 'choices' field option
