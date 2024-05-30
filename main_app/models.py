@@ -59,3 +59,4 @@ class Toy(models.Model):
 
   def get_absolute_url(self):
     return reverse('toy-detail', kwargs={'pk': self.id})
+  
