@@ -55,8 +55,13 @@
   font-size: var(--font-reg);
 }
 
-.page-header > img {
+.page-header{
+  margin-top: 40px;
+}
+.page-header img {
   margin-left: 10px;
+  width: 40px;
+  height: 50px;
 }
 
 .page-header > img:first-of-type {

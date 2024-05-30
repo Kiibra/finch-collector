@@ -40,3 +40,9 @@
   margin: 5px 0;
   font-size: var(--font-reg);
 }
+.page-header {
+  margin-top: 40px;
+}
+.page-header > img{
+  height: 36px;
+}
