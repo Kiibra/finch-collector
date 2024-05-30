@@ -9,6 +9,7 @@
 .finch-img {
   width: 75%;
   max-width: 350px;
+  padding-right: 10px;
 }
 
 .usr-img {
@@ -80,7 +81,7 @@
 .finch-details h2 {
   font-size: var(--font-xl);
   margin: 0 0 10px;
-  margin-top: 0;
+  margin-top: 10;
   margin-bottom: 10px;
 }
 
@@ -103,7 +104,7 @@
   box-shadow: var(--card-box-shadow);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
