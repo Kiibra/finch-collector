@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 # import the finch model
-from .models import Finch
+from .models import Finch, Toy
 # Add the following import to use the class view
 # Add UdpateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -54,3 +54,7 @@ def add_feeding(request, finch_id):
     new_feeding.finch_id = finch_id
     new_feeding.save()
   return redirect('finch-detail', finch_id=finch_id)
+
+class ToyCreate(CreateView):
+  model = Toy
+  fields = '__all__'
