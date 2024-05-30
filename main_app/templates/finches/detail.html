@@ -27,6 +27,12 @@
       <h2>A {{ finch.breed }} finch.</h2>
     {% endif %}
     <p>{{ finch.description }}</p>
+    {% comment %} New markup for details {% endcomment %}
+    <div class="finch-actions">
+      <a href="{% url 'finch-update' finch.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'finch-delete' finch.id %}" class="btn danger">Delete</a>
+    </div>
+    {% comment %} New markup above {% endcomment %}
   </div>
 </section>
 

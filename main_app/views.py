@@ -2,7 +2,8 @@ from django.shortcuts import render
 # import the finch model
 from .models import Finch
 # Add the following import to use the class view
-from django.views.generic.edit import CreateView
+# Add UdpateView & DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Define the home view
 def home(request):
@@ -23,3 +24,13 @@ def finch_detail(request, finch_id):
 class FinchCreate(CreateView):
   model = Finch
   fields = '__all__'
+  success_url = '/finches/'
+
+class FinchUpdate(UpdateView):
+  model = Finch
+  # Let's disallow the renaming of a finch by excluding the name field!
+  fields = ['breed', 'description', 'age']
+
+class FinchDelete(DeleteView):
+  model = Finch
+  success_url = '/finches/'
