@@ -41,3 +41,6 @@ class Feeding(models.Model):
   def __str__(self):
     # method for obtaining the value of a Field.choice
     return f"{self.get_meal_display()} on {self.date}"
+  
+  class Meta:
+    ordering = ['-date']
