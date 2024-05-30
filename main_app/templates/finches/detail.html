@@ -2,11 +2,25 @@
 {% load static %}
 
 {% block head %}
+
+<link 
+  href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" 
+  rel="stylesheet" 
+/>
+<link rel="stylesheet" href="{% static 'css/mcdp.css' %}">
+<script 
+  src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"
+>
+</script>
+
 <link 
   rel="stylesheet" 
   type="text/css" 
   href="{% static 'css/finches/finch-detail.css' %}"
 />
+
+<script defer src="{% static 'js/finch-detail.js' %}"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -56,6 +70,7 @@
   <h3>Add a Feeding</h3>
   <form
     method="post" 
+    action="{% url 'add-feeding' finch.id %}" 
     class="subsection-content"
     autocomplete="off"
   >
