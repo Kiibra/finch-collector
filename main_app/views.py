@@ -6,6 +6,7 @@ from .models import Finch, Toy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Import the FeedingForm
 from .forms import FeedingForm
+from django.views.generic import ListView, DetailView
 
 # Define the home view
 def home(request):
@@ -58,3 +59,9 @@ def add_feeding(request, finch_id):
 class ToyCreate(CreateView):
   model = Toy
   fields = '__all__'
+
+class ToyList(ListView):
+  model = Toy
+
+class ToyDetail(DetailView):
+  model = Toy
