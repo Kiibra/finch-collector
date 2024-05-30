@@ -4,6 +4,8 @@ from .models import Finch
 # Add the following import to use the class view
 # Add UdpateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+# Import the FeedingForm
+from .forms import FeedingForm
 
 # Define the home view
 def home(request):
@@ -17,9 +19,15 @@ def finch_index(request):
   finches = Finch.objects.all()
   return render(request, 'finches/index.html', { 'finches': finches })
 
+# update this view function adding the new FeedingsForm
 def finch_detail(request, finch_id):
   finch = Finch.objects.get(id=finch_id)
-  return render(request, 'finches/detail.html', { 'finch': finch })
+  # instantiate FeedingForm to be rendered in the template
+  feeding_form = FeedingForm()
+  return render(request, 'finches/detail.html', {
+    # include the finch and feeding_form in the context
+    'finch': finch, 'feeding_form': feeding_form
+  })
 
 class FinchCreate(CreateView):
   model = Finch
