@@ -32,7 +32,9 @@ def finch_detail(request, finch_id):
 
 class FinchCreate(CreateView):
   model = Finch
-  fields = '__all__'
+  # fields = '__all__'
+  #update fields so we can selectively show the fields we want. instead of all 
+  fields = ['name', 'breed', 'description', 'age']
   success_url = '/finches/'
 
 class FinchUpdate(UpdateView):
