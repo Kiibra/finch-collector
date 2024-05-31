@@ -10,6 +10,8 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+# Import the login_required decorator
+from django.contrib.auth.decorators import login_required
 
 # Define the home view
 # convert existing home view function to a CBV that inherits from the LoginView class
@@ -19,6 +21,7 @@ class Home(LoginView):
 def about(request):
   return render(request, 'about.html')
 
+@login_required
 # Add new view
 def finch_index(request):
   # finches = Finch.objects.all() #this gets everyone's finches 
@@ -60,6 +63,7 @@ class FinchDelete(DeleteView):
   model = Finch
   success_url = '/finches/'
 
+@login_required
 def add_feeding(request, finch_id):
   # create a ModelForm instance using the data in request.POST
   form = FeedingForm(request.POST)
@@ -90,6 +94,7 @@ class ToyDelete(DeleteView):
   model = Toy
   success_url = '/toys/'
 
+@login_required
 def assoc_toy(request, finch_id, toy_id):
   # Note, can pass a toy's id instead of the whole object
   Finch.objects.get(id=finch_id).toys.add(toy_id)
