@@ -40,11 +40,16 @@ class FinchCreate(CreateView):
   # fields = '__all__'
   #update fields so we can selectively show the fields we want. instead of all
   fields = ['name', 'breed', 'description', 'age']
-  success_url = '/finches/'
+  # valid finch form is being submitted
+  def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+    form.instance.user = self.request.user  # form.instance is the finch
+    # CreateView validate the form
+    return super().form_valid(form)
 
 class FinchUpdate(UpdateView):
   model = Finch
-  # Let's disallow the renaming of a finch by excluding the name field!
+  # disallow the renaming of a finch by excluding the name field!
   fields = ['breed', 'description', 'age']
 
 class FinchDelete(DeleteView):
@@ -81,8 +86,7 @@ class ToyDelete(DeleteView):
   model = Toy
   success_url = '/toys/'
 
-
 def assoc_toy(request, finch_id, toy_id):
-  # Note that you can pass a toy's id instead of the whole object
+  # Note, can pass a toy's id instead of the whole object
   Finch.objects.get(id=finch_id).toys.add(toy_id)
   return redirect('finch-detail', finch_id=finch_id)
