@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 # import the finch model
 from .models import Finch, Toy
-# Add the following import to use the class view
-# Add UdpateView & DeleteView
+# Add import to use the class view
+# Add UpdateView & DeleteView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 # Import the FeedingForm
 from .forms import FeedingForm
 from django.views.generic import ListView, DetailView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
 # Define the home view
 # convert existing home view function to a CBV that inherits from the LoginView class

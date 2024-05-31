@@ -19,4 +19,6 @@ urlpatterns = [
   path('toys/<int:pk>/delete/', views.ToyDelete.as_view(), name='toy-delete'),
   # associate a toy with a finch (M:M)
   path('finches/<int:finch_id>/assoc-toy/<int:toy_id>/', views.assoc_toy, name='assoc-toy'),
+  # New url for signup
+  path('accounts/signup/', views.signup, name='signup'),
 ]
