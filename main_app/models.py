@@ -65,5 +65,3 @@ class Feeding(models.Model):
   
   class Meta:
     ordering = ['-date']
-
-  
