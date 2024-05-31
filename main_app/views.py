@@ -92,3 +92,23 @@ def assoc_toy(request, finch_id, toy_id):
   # Note, can pass a toy's id instead of the whole object
   Finch.objects.get(id=finch_id).toys.add(toy_id)
   return redirect('finch-detail', finch_id=finch_id)
+
+def signup(request):
+  error_message = ''
+  if request.method == 'POST':
+    # This creates a 'user' form object
+    # that includes the data from the browser
+    form = UserCreationForm(request.POST)
+    if form.is_valid():
+      # This will add the user to the database
+      user = form.save()
+      # This will log a user in
+      login(request, user)
+      return redirect('finch-index')
+    else:
+      error_message = 'Invalid sign up - try again'
+  # A bad POST or a GET request, so render signup.html with an empty form
+  form = UserCreationForm()
+  context = {'form': form, 'error_message': error_message}
+  return render(request, 'signup.html', context)
+  # Same as: return render(request, 'signup.html', {'form': form, 'error_message': error_message})
