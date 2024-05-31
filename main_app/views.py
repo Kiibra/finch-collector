@@ -21,7 +21,9 @@ def about(request):
 
 # Add new view
 def finch_index(request):
-  finches = Finch.objects.all()
+  # finches = Finch.objects.all() #this gets everyone's finches 
+  # could retrieve so the logged user only see their finches 
+  finches = Finch.objects.filter(user=request.user)
   return render(request, 'finches/index.html', { 'finches': finches })
 
 # update this view function adding the new FeedingsForm
