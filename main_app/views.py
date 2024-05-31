@@ -12,6 +12,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Import the login_required decorator
 from django.contrib.auth.decorators import login_required
+# Import the mixin for class-based views
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Define the home view
 # convert existing home view function to a CBV that inherits from the LoginView class
@@ -42,7 +44,7 @@ def finch_detail(request, finch_id):
     'finch': finch, 'feeding_form': feeding_form, 'toys': toys_finch_doesnt_have
   })
 
-class FinchCreate(CreateView):
+class FinchCreate(LoginRequiredMixin, CreateView):
   model = Finch
   # fields = '__all__'
   #update fields so we can selectively show the fields we want. instead of all
@@ -54,12 +56,12 @@ class FinchCreate(CreateView):
     # CreateView validate the form
     return super().form_valid(form)
 
-class FinchUpdate(UpdateView):
+class FinchUpdate(LoginRequiredMixin, UpdateView):
   model = Finch
   # disallow the renaming of a finch by excluding the name field!
   fields = ['breed', 'description', 'age']
 
-class FinchDelete(DeleteView):
+class FinchDelete(LoginRequiredMixin, DeleteView):
   model = Finch
   success_url = '/finches/'
 
@@ -76,21 +78,21 @@ def add_feeding(request, finch_id):
     new_feeding.save()
   return redirect('finch-detail', finch_id=finch_id)
 
-class ToyCreate(CreateView):
+class ToyCreate(LoginRequiredMixin, CreateView):
   model = Toy
   fields = '__all__'
 
-class ToyList(ListView):
+class ToyList(LoginRequiredMixin, ListView):
   model = Toy
 
-class ToyDetail(DetailView):
+class ToyDetail(LoginRequiredMixin, DetailView):
   model = Toy
 
-class ToyUpdate(UpdateView):
+class ToyUpdate(LoginRequiredMixin, UpdateView):
     model = Toy
     fields = ['name', 'color']
 
-class ToyDelete(DeleteView):
+class ToyDelete(LoginRequiredMixin, DeleteView):
   model = Toy
   success_url = '/toys/'
 
