@@ -8,15 +8,22 @@
 {% block content %}
 
 <section class="logo-container">
-  {% comment %} <div class="finch-container">
-    <img src="{% static 'images/redbird.png' %}" alt="The Finch Collector" />
-  </div> {% endcomment %}
   <img 
-  width="800px"
+  width="600px"
   height="240px"
     src="{% static 'images/header.png' %}" 
     alt="Text reads: Finch Collector"
   />
+</section>
+
+<section>
+  <form action="{% url 'home' %}" method="post" class="login">
+    <h1>Login</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="btn submit">Login</button>
+  </form>
 </section>
 
 {% endblock %}
