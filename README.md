@@ -1,6 +1,6 @@
 ![](main_app/static/images/README_files/finches-index.png)
 
-# Daily Diary 🦋
+# Finch Collector
 
 *** 
 ### `Description:`
@@ -10,10 +10,10 @@ Finch Collector is an app for finch lovers! You can add a variety of finches to 
 
 ***
 
-# [Use Finch Collector 👈](https://daily-diary-kb.fly.dev/) 
+# [Use Finch Collector 👈](https://finch-collector-kb.fly.dev/) 
 ***
 
-### `Technologies`
+### `Technologies `
 ***
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
